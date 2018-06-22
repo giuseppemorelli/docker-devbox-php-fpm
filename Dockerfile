@@ -25,6 +25,7 @@ RUN apt-get -y update \
     php-soap \
     php-pear \
     wget \
+    git \
     && apt-get clean \
     && rm -rf \
     /var/lib/apt/lists/* \
