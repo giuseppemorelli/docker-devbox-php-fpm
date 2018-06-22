@@ -27,6 +27,7 @@ RUN apt-get -y update \
     php7.0-soap \
     php7.0-bcmath \
     wget \
+    git \
     && apt-get clean \
     && rm -rf \
     /var/lib/apt/lists/* \
