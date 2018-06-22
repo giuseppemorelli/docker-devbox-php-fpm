@@ -29,4 +29,4 @@ fi
 
 chown www-data:www-data /var/www/ -R
 
-/usr/sbin/php-fpm7.0 -F
+/usr/sbin/php-fpm5 -F

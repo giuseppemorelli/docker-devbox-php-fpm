@@ -1,4 +1,4 @@
-FROM debian:stretch
+FROM debian:jessie
 
 MAINTAINER Giuseppe Morelli <info@giuseppemorelli.net>
 
@@ -10,22 +10,20 @@ ENV DEBIAN_FRONTEND noninteractive
 
 RUN apt-get -y update \
     && apt-get -y install \
-    php7.0-fpm \
-    php7.0-cli \
-    php7.0-curl \
-    php7.0-dev \
-    php7.0-gd \
-    php7.0-intl \
-    php7.0-mcrypt \
-    php7.0-mysql \
-    php7.0-mbstring \
-    php7.0-xml \
-    php7.0-xsl \
-    php7.0-zip \
-    php7.0-json \
-    php7.0-xdebug \
-    php7.0-soap \
-    php7.0-bcmath \
+    php5-fpm \
+    php5-cli \
+    php5-curl \
+    php5-dev \
+    php5-gd \
+    php5-intl \
+    php5-mcrypt \
+    php5-mysql \
+    php5-xsl \
+    php-pclzip \
+    php5-json \
+    php5-xdebug \
+    php-soap \
+    php-pear \
     wget \
     && apt-get clean \
     && rm -rf \
@@ -39,11 +37,11 @@ RUN apt-get -y update \
 RUN mkdir /var/www/html
 
 COPY script /opt/script/
-COPY php/7.0/mods-available/devbox.ini /etc/php/7.0/fpm/conf.d/00-devbox.ini
-COPY php/7.0/mods-available/xdebug.ini /etc/php/7.0/fpm/conf.d/90-xdebug.ini
-COPY php/7.0/fpm/pool.d/www.conf /etc/php/7.0/fpm/pool.d/www.conf
+COPY php/5/mods-available/devbox.ini /etc/php/5/fpm/conf.d/00-devbox.ini
+COPY php/5/mods-available/xdebug.ini /etc/php/5/fpm/conf.d/90-xdebug.ini
+COPY php/5/fpm/pool.d/www.conf /etc/php/5/fpm/pool.d/www.conf
 
-RUN service php7.0-fpm start
+RUN service php5-fpm start
 
 EXPOSE 9000
 
