@@ -37,9 +37,9 @@ RUN apt-get -y update \
 RUN mkdir /var/www/html
 
 COPY script /opt/script/
-COPY php/5/mods-available/devbox.ini /etc/php/5/fpm/conf.d/00-devbox.ini
-COPY php/5/mods-available/xdebug.ini /etc/php/5/fpm/conf.d/90-xdebug.ini
-COPY php/5/fpm/pool.d/www.conf /etc/php/5/fpm/pool.d/www.conf
+COPY php5/mods-available/devbox.ini /etc/php5/fpm/conf.d/00-devbox.ini
+COPY php5/mods-available/xdebug.ini /etc/php5/fpm/conf.d/90-xdebug.ini
+COPY php5/fpm/pool.d/www.conf /etc/php5/fpm/pool.d/www.conf
 
 RUN service php5-fpm start
 
